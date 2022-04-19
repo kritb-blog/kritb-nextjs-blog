@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@kritb-blog/notion-db-connector@1.0.3":
-  version "1.0.3"
-  resolved "https://npm.pkg.github.com/download/@kritb-blog/notion-db-connector/1.0.3/1272e56c42c8ca1352633a1b989e459d77a3c32ca3735ed32742bf81d9a95c78#0d292877ed0524537e59ab7f7e12d6513c6695d4"
-  integrity sha512-Jepmn7LzHWv3DP855Elv+yGMTqkma7mKwryu5O+MNRpiDwbX3qpq8fYFUd1hrX5koMxa3tRuWCJ54lEzS338OQ==
+"@kritb-blog/notion-db-connector@1.3.0":
+  version "1.3.0"
+  resolved "https://npm.pkg.github.com/download/@kritb-blog/notion-db-connector/1.3.0/b645854f252f97cea24b1bce1fb1f2493c1a2d0c6d8d1d3bd427a790155ade71#e21a863f5804fff98e11fc5d3227928276990448"
+  integrity sha512-zV6KtB//2v+j9FViODVg3UZU8MPjKF02w3RyT14ctbFpXv+FtSZ14RZMvCyRhnJGZ/tVfXSXKpxdRRDv9ffAjw==
   dependencies:
     "@notionhq/client" "^1.0.4"
 

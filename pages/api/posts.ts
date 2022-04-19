@@ -7,5 +7,13 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
     database_id: process.env.NOTION_DATABASE_ID,
     filter: { property: "Status", select: { equals: "Completed" } },
   });
-  res.status(200).json(result);
+
+  const block = await connector.fetchBlockChildren(
+    {
+      block_id: result.results[0].id,
+      children: [],
+    },
+    20
+  );
+  res.status(200).json({ result, block });
 };
