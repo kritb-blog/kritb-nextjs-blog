@@ -9,10 +9,10 @@
   dependencies:
     "@notionhq/client" "^1.0.4"
 
-"@kritb-blog/react-isometric-grid@1.1.0":
-  version "1.1.0"
-  resolved "https://npm.pkg.github.com/download/@kritb-blog/react-isometric-grid/1.1.0/ad608cb9aad65a4872ad35cfc533068cab12c74e7b81848aa26d4fee42c192ec#2d751ce13c6e927b405e2cd32d3670aad33d2194"
-  integrity sha512-x3IMMPmnSe0hyU71424ebSYdQMOm1gyS9MZnmZm8xRwp8LbQyaCoVDnKiBbVBhOynEQ9houo42k3PskdmX/9iQ==
+"@kritb-blog/react-isometric-grid@1.1.1":
+  version "1.1.1"
+  resolved "https://npm.pkg.github.com/download/@kritb-blog/react-isometric-grid/1.1.1/3bf8edb907fd1aa1130ad146a937c448662e8f47f3096f76493ebca38456d4f6#5cbbd1d21efa5b382ee844cd060ef2b181fd6f8d"
+  integrity sha512-t350g8p1KqXDWu2MOMROPkee2GWit5KR50uZqkifRUusJX3gFsb/31KHDwM3xibYiX5e2EdKfJj9H+hZdQ0KMQ==
   dependencies:
     clsx "^1.1.1"
 
