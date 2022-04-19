@@ -9,6 +9,13 @@
   dependencies:
     "@notionhq/client" "^1.0.4"
 
+"@kritb-blog/react-isometric-grid@1.1.0":
+  version "1.1.0"
+  resolved "https://npm.pkg.github.com/download/@kritb-blog/react-isometric-grid/1.1.0/ad608cb9aad65a4872ad35cfc533068cab12c74e7b81848aa26d4fee42c192ec#2d751ce13c6e927b405e2cd32d3670aad33d2194"
+  integrity sha512-x3IMMPmnSe0hyU71424ebSYdQMOm1gyS9MZnmZm8xRwp8LbQyaCoVDnKiBbVBhOynEQ9houo42k3PskdmX/9iQ==
+  dependencies:
+    clsx "^1.1.1"
+
 "@next/env@12.1.5":
   version "12.1.5"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.1.5.tgz#a21ba6708022d630402ca2b340316e69a0296dfc"
@@ -191,6 +198,11 @@ character-entities@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/character-entities/-/character-entities-2.0.1.tgz#98724833e1e27990dee0bd0f2b8a859c3476aac7"
   integrity sha512-OzmutCf2Kmc+6DrFrrPS8/tDh2+DpnrfzdICHWhcVC9eOd0N1PXmQEE1a8iM4IziIAG+8tmTq3K+oo0ubH6RRQ==
+
+clsx@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
 
 combined-stream@^1.0.8:
   version "1.0.8"
