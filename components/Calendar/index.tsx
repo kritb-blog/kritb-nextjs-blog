@@ -1,7 +1,7 @@
 import { IsometricGrid } from "@kritb-blog/react-isometric-grid";
 import clsx from "clsx";
-import { getDaysInMonth, getMonth } from "date-fns";
-import { FunctionComponent, useState } from "react";
+import { getDate, getDaysInMonth, getMonth } from "date-fns";
+import { FunctionComponent, useCallback, useState } from "react";
 import { getFirstWeekDayFromMonth } from "../../utils/date";
 import useWindowDimensions from "../hooks/useWindowDimension";
 import { MONTH_NAME } from "./constants";
@@ -13,9 +13,26 @@ const Calendar: FunctionComponent = () => {
   );
   const windowDimensions = useWindowDimensions();
   const firstWeekDayMonth = getFirstWeekDayFromMonth(2022, currentMonth);
-//   const onMonthChanged = (offset: number) => () => {
-//     setCurrentMonth(currentMonth + offset);
-//   };
+  //   const onMonthChanged = (offset: number) => () => {
+  //     setCurrentMonth(currentMonth + offset);
+  //   };
+  const renderTile = useCallback(
+    (index: number) => {
+      const dateNumber = index - firstWeekDayMonth + 1;
+      return index >= firstWeekDayMonth &&
+        index - firstWeekDayMonth < getDaysInMonth(currentMonth) ? (
+        <span
+          className={clsx(styles.dateTile, {
+            [styles.today]: dateNumber === getDate(new Date()),
+          })}
+        >
+          {dateNumber}
+        </span>
+      ) : null;
+    },
+    [currentMonth]
+  );
+
   return (
     <div className={styles.calendarContainer}>
       <div className={clsx("isometric", styles.monthSelector)}>
@@ -28,14 +45,7 @@ const Calendar: FunctionComponent = () => {
           numOfRow: 5,
           blockSize: windowDimensions.height / 10,
         }}
-        renderTile={(index: number) =>
-          index >= firstWeekDayMonth &&
-          index - firstWeekDayMonth < getDaysInMonth(currentMonth) ? (
-            <span className={styles.dateTile}>
-              {index - firstWeekDayMonth + 1}
-            </span>
-          ) : null
-        }
+        renderTile={renderTile}
       />
     </div>
   );
