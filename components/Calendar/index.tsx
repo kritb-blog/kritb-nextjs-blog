@@ -5,7 +5,7 @@ import { FunctionComponent, useCallback, useState } from "react";
 import { getFirstWeekDayFromMonth } from "../../utils/date";
 import useWindowDimensions from "../hooks/useWindowDimension";
 import { MONTH_NAME } from "./constants";
-import styles from "./style.module.css";
+import styles from "./style.module.scss";
 
 const Calendar: FunctionComponent = () => {
   const [currentMonth, setCurrentMonth] = useState<number>(
@@ -35,9 +35,6 @@ const Calendar: FunctionComponent = () => {
 
   return (
     <div className={styles.calendarContainer}>
-      <div className={clsx("isometric", styles.monthSelector)}>
-        <h2 className={styles.monthName}>{MONTH_NAME[currentMonth]}</h2>
-      </div>
       <IsometricGrid
         className={styles.grid}
         opts={{
@@ -47,6 +44,9 @@ const Calendar: FunctionComponent = () => {
         }}
         renderTile={renderTile}
       />
+      <div className={clsx("isometric", styles.monthSelector)}>
+        <h2 className={styles.monthName}>{MONTH_NAME[currentMonth]}</h2>
+      </div>
     </div>
   );
 };

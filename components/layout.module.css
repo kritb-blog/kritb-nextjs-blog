@@ -25,4 +25,5 @@
   background-image:
     linear-gradient(to right, #333 1px, transparent 1px),
     linear-gradient(to bottom, #333 1px, transparent 1px);
+  border: 1rem solid white;
 }

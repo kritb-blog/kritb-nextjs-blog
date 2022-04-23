@@ -17,7 +17,7 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={utilStyles.headingMd}>
         <Calendar />
       </section>
     </Layout>
