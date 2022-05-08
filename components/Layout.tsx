@@ -1,7 +1,7 @@
 import Head from "next/head";
 import clsx from "clsx";
-import { Badge } from "@kritb-blog/ui-components";
 import styles from "./layout.module.scss";
+import BadgeGroup from "./BadgeGroup";
 
 export const siteTitle = "KritB's Blog";
 
@@ -11,27 +11,6 @@ export default function Layout({
   children: React.ReactNode;
   home?: boolean;
 }) {
-  const renderBadgeGroup = () => {
-    return (
-      <>
-        <div className={styles.githubBadge}>
-          <Badge
-            badgeImageUrl="/icons/github.svg"
-            size={24}
-            badgeName="Github"
-          />
-        </div>
-        <div className={styles.linkedInBadge}>
-          <Badge
-            badgeImageUrl="/icons/linkedin.svg"
-            size={24}
-            badgeName="Github"
-          />
-        </div>
-      </>
-    );
-  };
-
   return (
     <div className={styles.container}>
       <Head>
@@ -49,7 +28,7 @@ export default function Layout({
       <header className={styles.header}></header>
       <div className={clsx("isometric", styles.bgColor)} />
       <main>{children}</main>
-      {renderBadgeGroup()}
+      <BadgeGroup />
     </div>
   );
 }
