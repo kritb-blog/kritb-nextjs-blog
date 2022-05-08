@@ -1,11 +1,15 @@
-import { IsometricGrid } from "@kritb-blog/react-isometric-grid";
-import clsx from "clsx";
+import { Grid, IsometricPlane } from "@kritb-blog/ui-components";
 import { getDate, getDaysInMonth, getMonth } from "date-fns";
 import { FunctionComponent, useCallback, useState } from "react";
 import { getFirstWeekDayFromMonth } from "../../utils/date";
 import useWindowDimensions from "../hooks/useWindowDimension";
 import { MONTH_NAME } from "./constants";
-import styles from "./style.module.scss";
+import {
+  StyledCalendarContainer,
+  StyledDateTile,
+  StyledMonthSelector,
+  StyledTodayTile,
+} from "./styles";
 
 const Calendar: FunctionComponent = () => {
   const [currentMonth, setCurrentMonth] = useState<number>(
@@ -19,35 +23,32 @@ const Calendar: FunctionComponent = () => {
   const renderTile = useCallback(
     (index: number) => {
       const dateNumber = index - firstWeekDayMonth + 1;
+      const TileComponent =
+        dateNumber === getDate(new Date()) ? StyledTodayTile : StyledDateTile;
       return index >= firstWeekDayMonth &&
         index - firstWeekDayMonth < getDaysInMonth(currentMonth) ? (
-        <span
-          className={clsx(styles.dateTile, {
-            [styles.today]: dateNumber === getDate(new Date()),
-          })}
-        >
-          {dateNumber}
-        </span>
+        <TileComponent>{dateNumber}</TileComponent>
       ) : null;
     },
     [currentMonth]
   );
 
   return (
-    <div className={styles.calendarContainer}>
-      <IsometricGrid
-        className={styles.grid}
-        opts={{
-          numOfCol: 7,
-          numOfRow: 5,
-          blockSize: windowDimensions.height / 10,
-        }}
-        renderTile={renderTile}
-      />
-      <div className={clsx("isometric", styles.monthSelector)}>
-        <h2 className={styles.monthName}>{MONTH_NAME[currentMonth]}</h2>
-      </div>
-    </div>
+    <StyledCalendarContainer>
+      <IsometricPlane>
+        <Grid
+          opts={{
+            numOfCol: 7,
+            numOfRow: 5,
+            blockSize: windowDimensions.height / 10,
+          }}
+          renderTile={renderTile}
+        />
+        <StyledMonthSelector>
+          <h2>{MONTH_NAME[currentMonth]}</h2>
+        </StyledMonthSelector>
+      </IsometricPlane>
+    </StyledCalendarContainer>
   );
 };
 

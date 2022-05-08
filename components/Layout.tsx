@@ -1,8 +1,7 @@
 import Head from "next/head";
 import clsx from "clsx";
-import Badge from "./Badge";
+import { Badge } from "@kritb-blog/ui-components";
 import styles from "./layout.module.scss";
-import { BadgeTypes } from "./Badge/constants";
 
 export const siteTitle = "KritB's Blog";
 
@@ -17,14 +16,16 @@ export default function Layout({
       <>
         <div className={styles.githubBadge}>
           <Badge
-            targetUrl="https://github.com/zestzero"
-            type={BadgeTypes.GITHUB}
+            badgeImageUrl="/icons/github.svg"
+            size={24}
+            badgeName="Github"
           />
         </div>
         <div className={styles.linkedInBadge}>
           <Badge
-            targetUrl="https://github.com/zestzero"
-            type={BadgeTypes.LINKEDIN}
+            badgeImageUrl="/icons/linkedin.svg"
+            size={24}
+            badgeName="Github"
           />
         </div>
       </>
