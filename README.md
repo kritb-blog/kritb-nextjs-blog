@@ -11,3 +11,8 @@ Solution is adding GITHUB_TOKEN env like mentioned in `.npmrc` file.
 ```bash
 GITHUB_TOKEN=<YOUR_GITHUB_PERSONAL_TOKEN> yarn add @kritb-blog/ui-components
 ```
+OR
+```bash
+export GITHUB_TOKEN=<YOUR_GITHUB_PERSONAL_TOKEN>
+yarn
+```
