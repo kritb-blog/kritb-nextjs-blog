@@ -2,6 +2,7 @@ import Head from "next/head";
 import clsx from "clsx";
 import styles from "./layout.module.scss";
 import BadgeGroup from "./BadgeGroup";
+import { IsometricPlane } from "@kritb-blog/ui-components";
 
 export const siteTitle = "KritB's Blog";
 
@@ -27,9 +28,12 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}></header>
-      <div className={clsx("isometric", styles.bgColor)} />
-      <main>{children}</main>
-      <BadgeGroup />
+      <main>
+        <IsometricPlane>
+          <div className={styles.bgColor}>{children}</div>
+        </IsometricPlane>
+        <BadgeGroup />
+      </main>
     </div>
   );
 }

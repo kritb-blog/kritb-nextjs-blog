@@ -1,4 +1,4 @@
-import { Grid, IsometricPlane } from "@kritb-blog/ui-components";
+import { Grid } from "@kritb-blog/ui-components";
 import { getDate, getDaysInMonth, getMonth } from "date-fns";
 import { FunctionComponent, useCallback, useState } from "react";
 import { getFirstWeekDayFromMonth } from "../../utils/date";
@@ -11,6 +11,7 @@ import {
   StyledTodayTile,
 } from "./styles";
 
+// TODO: Move this component to ui-components
 const Calendar: FunctionComponent = () => {
   const [currentMonth, setCurrentMonth] = useState<number>(
     getMonth(new Date())
@@ -35,19 +36,17 @@ const Calendar: FunctionComponent = () => {
 
   return (
     <StyledCalendarContainer>
-      <IsometricPlane>
-        <Grid
-          opts={{
-            numOfCol: 7,
-            numOfRow: 5,
-            blockSize: windowDimensions.height / 10,
-          }}
-          renderTile={renderTile}
-        />
-        <StyledMonthSelector>
-          <h2>{MONTH_NAME[currentMonth]}</h2>
-        </StyledMonthSelector>
-      </IsometricPlane>
+      <Grid
+        opts={{
+          numOfCol: 7,
+          numOfRow: 5,
+          blockSize: windowDimensions.height / 10,
+        }}
+        renderTile={renderTile}
+      />
+      <StyledMonthSelector>
+        <h2>{MONTH_NAME[currentMonth]}</h2>
+      </StyledMonthSelector>
     </StyledCalendarContainer>
   );
 };
