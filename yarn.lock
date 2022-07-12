@@ -153,12 +153,13 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.13.tgz#b6461fb0c2964356c469e115f504c95ad97ab88c"
   integrity sha512-GryiOJmNcWbovBxTfZSF71V/mXbgcV3MewDe3kIMCLyIh5e7SKAeUZs+rMnJ8jkMolZ/4/VsdBmMrw3l+VdZ3w==
 
-"@kritb-blog/notion-db-connector@1.3.0":
-  version "1.3.0"
-  resolved "https://npm.pkg.github.com/download/@kritb-blog/notion-db-connector/1.3.0/b645854f252f97cea24b1bce1fb1f2493c1a2d0c6d8d1d3bd427a790155ade71#e21a863f5804fff98e11fc5d3227928276990448"
-  integrity sha512-zV6KtB//2v+j9FViODVg3UZU8MPjKF02w3RyT14ctbFpXv+FtSZ14RZMvCyRhnJGZ/tVfXSXKpxdRRDv9ffAjw==
+"@kritb-blog/notion-db-connector@1.4.1":
+  version "1.4.1"
+  resolved "https://npm.pkg.github.com/download/@kritb-blog/notion-db-connector/1.4.1/b2760c3e6b6c4fff7538803f6e02ca370fc54447e2db55b9c835892ca1b9ee1a#dbd826309c5bd0f017d8e6472452b40d2ee94215"
+  integrity sha512-Hvlq70/oDqqQNSZMvMLnzz88U2+x0KPlCnh7tpC3Fx5GsbSCIIK32h7WIpCj2VYvarf8ZTCXJHs9/nxNpS2ySw==
   dependencies:
     "@notionhq/client" "^1.0.4"
+    memory-cache "^0.2.0"
 
 "@kritb-blog/ui-components@^1.1.6":
   version "1.1.6"
@@ -791,6 +792,11 @@ mdurl@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
+
+memory-cache@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/memory-cache/-/memory-cache-0.2.0.tgz#7890b01d52c00c8ebc9d533e1f8eb17e3034871a"
+  integrity sha512-OcjA+jzjOYzKmKS6IQVALHLVz+rNTMPoJvCztFaZxwG14wtAW7VRZjwTQu06vKCYOxh4jVnik7ya0SXTB0W+xA==
 
 micromark-core-commonmark@^1.0.1:
   version "1.0.6"

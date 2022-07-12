@@ -4,18 +4,22 @@ import {
   getDaysInMonth,
   setDate,
   setHours,
+  setMilliseconds,
   setMinutes,
   setMonth,
   setSeconds,
 } from "date-fns";
+import NotionService from "../../../services/NotionService";
 
+const setTimeToZero = (date: Date) =>
+  setHours(setMinutes(setSeconds(setMilliseconds(date, 0), 0), 0), 0);
 const getDateByMonth = (month: number) => {
   return {
-    start: setMonth(
-      setDate(setHours(setMinutes(setSeconds(new Date(), 0), 0), 0), 1),
+    start: setMonth(setDate(setTimeToZero(new Date()), 1), month - 1),
+    end: setMonth(
+      setDate(setTimeToZero(new Date()), getDaysInMonth(month - 1)),
       month - 1
     ),
-    end: setMonth(setDate(new Date(), getDaysInMonth(month - 1)), month - 1),
   };
 };
 
@@ -52,5 +56,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
     20
   );
-  res.status(200).json({ result, block });
+
+  res.status(200).json(NotionService.convertDbToViewModel({ result, block }));
 };
