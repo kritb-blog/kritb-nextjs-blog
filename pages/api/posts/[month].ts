@@ -9,7 +9,7 @@ import {
   setMonth,
   setSeconds,
 } from "date-fns";
-import NotionService from "../../../services/NotionService";
+import NotionService from "../../../services/notion";
 
 const setTimeToZero = (date: Date) =>
   setHours(setMinutes(setSeconds(setMilliseconds(date, 0), 0), 0), 0);
