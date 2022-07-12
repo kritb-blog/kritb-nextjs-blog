@@ -27,7 +27,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { month } = req.query;
   const connector = new NotionDbConnector(process.env.NOTION_TOKEN);
   const { start, end } = getDateByMonth(parseInt(month as string));
-  console.log({ start, end });
   const result = await connector.fetchDb({
     database_id: process.env.NOTION_DATABASE_ID,
     filter: {
@@ -47,7 +46,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
   });
 
-  if (!result || result.results.length === 0) return res.status(200).json({});
+  if (!result || !result.results || result.results.length === 0)
+    return res.status(200).json({});
 
   const block = await connector.fetchBlockChildren(
     {
