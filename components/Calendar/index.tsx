@@ -1,15 +1,11 @@
 import { Grid } from "@kritb-blog/ui-components";
-import { getDate, getDaysInMonth, getMonth } from "date-fns";
+import { getMonth } from "date-fns";
 import { FunctionComponent, useCallback, useState } from "react";
 import { getFirstWeekDayFromMonth } from "../../utils/date";
+import DateTile from "../DateTile";
 import useWindowDimensions from "../hooks/useWindowDimension";
 import { MONTH_NAME } from "./constants";
-import {
-  StyledCalendarContainer,
-  StyledDateTile,
-  StyledMonthSelector,
-  StyledTodayTile,
-} from "./styles";
+import { StyledCalendarContainer, StyledMonthSelector } from "./styles";
 
 // TODO: Move this component to ui-components
 const Calendar: FunctionComponent = () => {
@@ -22,15 +18,7 @@ const Calendar: FunctionComponent = () => {
   //     setCurrentMonth(currentMonth + offset);
   //   };
   const renderTile = useCallback(
-    (index: number) => {
-      const dateNumber = index - firstWeekDayMonth + 1;
-      const TileComponent =
-        dateNumber === getDate(new Date()) ? StyledTodayTile : StyledDateTile;
-      return index >= firstWeekDayMonth &&
-        index - firstWeekDayMonth < getDaysInMonth(currentMonth) ? (
-        <TileComponent>{dateNumber}</TileComponent>
-      ) : null;
-    },
+    (index: number) => <DateTile index={index} currentMonth={currentMonth} />,
     [currentMonth]
   );
 

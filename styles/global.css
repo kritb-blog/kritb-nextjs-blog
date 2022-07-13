@@ -9,6 +9,8 @@ body {
   background-color: rgb(45, 45, 45);
   color: white;
   overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
 * {
@@ -27,9 +29,4 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
-}
-
-.isometric {
-  transform-style: preserve-3d;
-  transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
 }
