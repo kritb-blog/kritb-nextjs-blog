@@ -1,5 +1,5 @@
 import { Grid } from "@kritb-blog/ui-components";
-import { getMonth } from "date-fns";
+import { getDaysInMonth, getMonth, getWeeksInMonth } from "date-fns";
 import { FunctionComponent, useCallback, useState } from "react";
 import { getFirstWeekDayFromMonth } from "../../utils/date";
 import DateTile from "../DateTile";
@@ -9,32 +9,45 @@ import { StyledCalendarContainer, StyledMonthSelector } from "./styles";
 
 // TODO: Move this component to ui-components
 const Calendar: FunctionComponent = () => {
-  const [currentMonth, setCurrentMonth] = useState<number>(
-    getMonth(new Date())
-  );
+  const today = new Date();
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [currentMonth, setCurrentMonth] = useState<number>(getMonth(today));
   const windowDimensions = useWindowDimensions();
   const firstWeekDayMonth = getFirstWeekDayFromMonth(2022, currentMonth);
   //   const onMonthChanged = (offset: number) => () => {
   //     setCurrentMonth(currentMonth + offset);
   //   };
+  const onDateSelected = (selectedDate: Date) => {
+    setSelectedDate(selectedDate);
+  };
   const renderTile = useCallback(
-    (index: number) => <DateTile index={index} currentMonth={currentMonth} />,
+    (index: number) => {
+      return index >= firstWeekDayMonth &&
+        index - firstWeekDayMonth < getDaysInMonth(currentMonth) ? (
+        <DateTile
+          index={index}
+          currentMonth={currentMonth}
+          onClick={onDateSelected}
+        />
+      ) : null;
+    },
     [currentMonth]
   );
 
   return (
     <StyledCalendarContainer>
+      <StyledMonthSelector>
+        <h2>{MONTH_NAME[currentMonth]}</h2>
+      </StyledMonthSelector>
       <Grid
         opts={{
           numOfCol: 7,
-          numOfRow: 5,
+          numOfRow: getWeeksInMonth(today),
           blockSize: windowDimensions.height / 10,
         }}
         renderTile={renderTile}
       />
-      <StyledMonthSelector>
-        <h2>{MONTH_NAME[currentMonth]}</h2>
-      </StyledMonthSelector>
+      {selectedDate.toDateString()}
     </StyledCalendarContainer>
   );
 };
