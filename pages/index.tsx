@@ -7,6 +7,7 @@ import Calendar from "../components/Calendar";
 import { FunctionComponent } from "react";
 import { GetServerSideProps } from "next";
 import { getMonth } from "date-fns";
+import axios from "axios";
 
 interface Props {
   data: any;
@@ -35,15 +36,13 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     "Cache-Control",
     "public, s-maxage=10, stale-while-revalidate=59"
   );
-
   const currentMonth = getMonth(new Date());
-  const response = await fetch(
-    `${process.env.SITE_URL}/api/posts/${currentMonth}`
-  );
-  const data = await response.json();
+  const response = await axios.get(`/api/posts/${currentMonth}`, {
+    baseURL: process.env.SITE_URL,
+  });
 
   return {
-    props: { data },
+    props: { data: response },
   };
 };
 
