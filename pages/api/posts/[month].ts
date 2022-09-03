@@ -24,7 +24,7 @@ const getDateByMonth = (month: number) => {
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { month } = req.query;
+  const { month, status } = req.query;
   const connector = new NotionDbConnector(process.env.NOTION_TOKEN);
   const { start, end } = getDateByMonth(parseInt(month as string));
   const result = await connector.fetchDb({
@@ -40,7 +40,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         },
         {
           property: "Status",
-          select: { equals: "Completed" },
+          select: { equals: `${status}` },
         },
       ],
     },

@@ -1,7 +1,6 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Layout from "../../components/Layout";
-import Date from "../../components/Date";
 import utilStyles from "../../styles/utils.module.css";
 import { NotionDbConnector } from "@kritb-blog/notion-db-connector";
 
@@ -42,7 +41,6 @@ export default function Post({
       <article>
         <h1 className={utilStyles.headingXl}>{title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={page.created_time} />
         </div>
         {block.results.map((r) => (
           <div key={r.id}>{r.object}</div>

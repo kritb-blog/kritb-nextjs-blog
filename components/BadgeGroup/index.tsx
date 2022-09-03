@@ -1,9 +1,9 @@
 import { Badge, Theme } from "@kritb-blog/ui-components";
-import { StyledBadgeGroup } from "./styles";
+import styles from "./styles.module.scss";
 
 const BadgeGroup = () => {
   return (
-    <StyledBadgeGroup>
+    <div className={styles.badgeGroup}>
       <Badge
         badgeImageUrl="/icons/github.svg"
         targetUrl="https://github.com/zestzero"
@@ -16,7 +16,7 @@ const BadgeGroup = () => {
         size={Theme.IconSize.L}
         badgeName="Github"
       />
-    </StyledBadgeGroup>
+    </div>
   );
 };
 
